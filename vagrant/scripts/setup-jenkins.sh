@@ -24,7 +24,7 @@ apt-get install -y \
 
 # Instala o Java, necessário para executar o Jenkins
 echo "Instalando Java..."
-apt-get install -y openjdk-17-jre
+apt-get install -y openjdk-21-jre
 
 # Adiciona o repositório do NodeSource
 # para instalar o Node.js versão 20
