@@ -29,13 +29,15 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Testando conexao com a VM de producao...'
+                echo 'Enviando aplicacao para a VM de producao...'
 
                 sshagent(['app']) {
 
-                sh 'ssh vagrant@192.168.56.20 hostname'
-                }
-            }
+                sh '''
+                    scp -r app/* vagrant@192.168.56.20:/home/vagrant/app-prod/
+                '''
+                  }
+             }
         }
     }
 
