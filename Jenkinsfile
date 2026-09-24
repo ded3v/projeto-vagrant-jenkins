@@ -26,6 +26,17 @@ pipeline {
                 sh 'cd app && npm test'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                echo 'Testando conexao com a VM de producao...'
+
+                sshagent(['app']) {
+
+                sh 'ssh vagrant@192.168.56.20 hostname'
+                }
+            }
+        }
     }
 
     post {
